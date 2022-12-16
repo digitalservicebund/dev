@@ -38,6 +38,7 @@ _install_macos_infra() {
     actionlint \
     kube-score \
     kubectl \
+    kubeseal \
     kustomize \
     kyverno \
     tfenv
