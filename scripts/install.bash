@@ -24,11 +24,23 @@ _user() {
 }
 
 _install_macos_common() {
-  brew install talisman lefthook prettier shellcheck adr-tools aquasecurity/trivy/trivy
+  brew install \
+    adr-tools \
+    aquasecurity/trivy/trivy \
+    lefthook \
+    prettier \
+    shellcheck \
+    talisman
 }
 
 _install_macos_infra() {
-  brew install tfenv kubectl kustomize kyverno kube-score actionlint
+  brew install \
+    actionlint \
+    kube-score \
+    kubectl \
+    kustomize \
+    kyverno \
+    tfenv
 }
 
 OS="$(uname)"
