@@ -36,6 +36,7 @@ _install_macos_common() {
 _install_macos_infra() {
   brew install \
     actionlint \
+    helm \
     kube-score \
     kubectl \
     kubeseal \
