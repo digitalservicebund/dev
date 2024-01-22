@@ -21,6 +21,7 @@
             pkgs.hadolint
             pkgs.lefthook
             pkgs.nodePackages.prettier
+            pkgs.nodejs_20
             pkgs.shellcheck
             pkgs.shfmt
             terraform_1_5_7-nixpkgs.legacyPackages.${system}.terraform
