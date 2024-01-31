@@ -52,8 +52,6 @@ _install_macos_infra() {
 		tfenv \
 		tflint \
 		trufflesecurity/trufflehog/trufflehog
-	brew pin argocd
-	brew pin kubernetes-cli
 }
 
 OS="$(uname)"
