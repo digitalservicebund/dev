@@ -55,7 +55,7 @@ _install_macos_infra() {
 }
 
 OS="$(uname)"
-if [[ "${OS}" == "Darwin" ]]; then
+if [[ "${OS}" == "Darwin" || "${OS}" == "Linux" ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
 		_fail "Setup requires Homebrew, please install first: https://brew.sh"
 		exit 1
@@ -71,6 +71,6 @@ if [[ "${OS}" == "Darwin" ]]; then
 		;;
 	esac
 else
-	_fail "Installation is only supported on macOS (so far)."
+	_fail "Installation requires Homebrew available for macOS or Linux."
 	exit 1
 fi
