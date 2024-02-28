@@ -4,4 +4,4 @@ pre-commit:
   commands:
     secrets-audit:
       tags: security
-      run: bash -c 'trufflehog git file://. --no-update --since-commit HEAD --fail
+      run: bash -c 'trufflehog git file://. --no-update --since-commit HEAD --fail'
