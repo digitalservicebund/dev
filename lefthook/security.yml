@@ -1,0 +1,7 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    secrets-audit:
+      tags: security
+      run: bash -c 'trufflehog git file://. --no-update --since-commit HEAD --fail

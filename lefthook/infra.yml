@@ -1,0 +1,15 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    terraform-fmt:
+      tags: style terraform
+      glob: "*.{tf,tfvars}"
+      stage_fixed: true
+      run: terraform fmt -write {staged_files}
+    tflint:
+      tags: lint terraform
+      glob: "*.{tf,tfvars}"
+      stage_fixed: true
+      run: |
+        for file in {staged_files}; do tflint --fix --recursive --filter=$(basename "$file"); done

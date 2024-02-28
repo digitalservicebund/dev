@@ -1,0 +1,31 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    actionlint:
+      tags: lint build
+      glob: ".github/workflows/*.yml"
+      run: actionlint {staged_files}
+    hadolint:
+      tags: lint docker
+      glob: "Dockerfile*"
+      run: hadolint {staged_files} --failure-threshold warning
+    prettier:
+      tags: style glue
+      stage_fixed: true
+      glob: "*.{html,js,json,md,mjs,yaml,yml}"
+      run: prettier --write {staged_files}
+    shellcheck:
+      tags: lint shell
+      glob: "*.{bash,sh}"
+      run: shellcheck {staged_files}
+    shfmt:
+      tags: style shell
+      glob: "*.{bash,sh}"
+      stage_fixed: true
+      run: shfmt -w {staged_files}
+    yamllint:
+      tags: lint yaml
+      glob: "*.{yaml,yml}"
+      run: |
+        yamllint -d "{extends: default, rules: {line-length: {max: 120}, comments: disable}}" {staged_files}
